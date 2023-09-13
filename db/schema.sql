@@ -10,3 +10,13 @@ CREATE TABLE departments (
   name VARCHAR(30) NOT NULL,
   PRIMARY KEY (id)
 );
+
+CREATE TABLE roles (
+  id INT NOT NULL AUTO_INCREMENT,
+  title VARCHAR(30) NOT NULL,
+  department INT,
+  salary INT NOT NULL,
+  FOREIGN KEY (department)
+  REFERENCES departments(id)
+  ON DELETE CASCADE
+);
