@@ -30,13 +30,37 @@ const employeeData = () => {
             }
         ])
         .then((answers) => {
-            if (answers.menu == 'view all departments') {
-                viewAllDepatments();
+            switch (answers.menu) {
+                case 'view all departments':
+                    viewAllDepatments();
+                    break;
 
+                case 'view all roles':
+                    viewAllRoles();
+                    break;
+
+                case 'view all employees':
+                    viewAllEmployee();
+                    break;
+
+                case 'add a department':
+                    addDepartment();
+                    break;
+
+                case 'add a role':
+                    addRole();
+                    break;
+
+                case 'add an employee':
+                    addEmployee();
+                    break;
+
+                case 'update an employee role':
+                    updateEmployeeRole();
+                    break;
             }
-
         });
-}
+};
 
 const viewAllDepatments = () => {
     db.query('SELECT * FROM department', (err, res) => {
