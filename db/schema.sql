@@ -6,14 +6,14 @@ USE employee_db;
 
 
 CREATE TABLE departments (
-  id INT NOT NULL AUTO_INCREMENT,
+  id INT NOT NULL,
   name VARCHAR(30) NOT NULL,
   PRIMARY KEY (id)
 );
 
 CREATE TABLE roles (
-  id INT NOT NULL AUTO_INCREMENT,
-  title VARCHAR(30) NOT NULL,
+  id INT NOT NULL,
+  title VARCHAR(100) NOT NULL,
   department INT,
   salary INT NOT NULL,
   FOREIGN KEY (department)
