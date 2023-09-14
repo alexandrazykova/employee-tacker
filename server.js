@@ -120,5 +120,37 @@ const addDepartment = () => {
         });
 };
 
+// Function to add role
+const addRole = () => {
+    inquirer
+        .prompt([
+            {
+                type: "input",
+                name: "title",
+                message: "What is the job title?"
+            },
+            {
+                type: "input",
+                name: "salary",
+                message: "What is the salary for the role?"
+            },
+            {
+                type: "input",
+                name: "department_id",
+                message: "What department id does this role have?"
+            },
+        ])
+        .then(body = (response) => {
+            db.query(`INSERT INTO role (title, salary, department_id)  VALUES ("${response.title}", "${response.salary}", "${response.department_id}" );`, (err, res) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    console.table(res);
+                }
+                viewAllRoles();
+            });
+        });
+};
+
 // Call the function
 employeeData();
