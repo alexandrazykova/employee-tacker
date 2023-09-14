@@ -109,12 +109,11 @@ const addDepartment = () => {
         }])
         .then(body = (response) => {
             const param = [body.department];
-            db.query('INSERT INTO department', param, (err, res) => {
+            db.query(`INSERT INTO department (name) VALUES ('${response.department}')`, param, (err, res) => {
                 if (err) {
-                    res.status(400).json({
-                        error: err.message
-                    });
-                    return;
+                    console.log(err)
+                } else {
+                    console.table(res);
                 }
                 viewAllDepatments();
             });
