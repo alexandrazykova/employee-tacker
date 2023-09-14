@@ -41,7 +41,7 @@ const employeeData = () => {
                     break;
 
                 case 'view all employees':
-                    viewAllEmployee();
+                    viewAllEmployees();
                     break;
 
                 case 'add a department':
@@ -87,7 +87,8 @@ const viewAllRoles = () => {
     });
 }
 
-const viewAllEmployee = () => {
+// Function to display employees
+const viewAllEmployees = () => {
     db.query('SELECT * FROM employee', (err, res) => {
         if (err) {
             console.log(err)
@@ -97,6 +98,28 @@ const viewAllEmployee = () => {
         employeeData();
     });
 }
+
+// Function to add department
+const addDepartment = () => {
+    inquirer
+        .prompt([{
+            type: "input",
+            name: "department",
+            message: "What department would you like to add?",
+        }])
+        .then(body = (response) => {
+            const param = [body.department];
+            db.query('INSERT INTO department', param, (err, res) => {
+                if (err) {
+                    res.status(400).json({
+                        error: err.message
+                    });
+                    return;
+                }
+                viewAllDepatments();
+            });
+        });
+};
 
 // Call the function
 employeeData();
