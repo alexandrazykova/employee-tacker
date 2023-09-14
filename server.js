@@ -141,13 +141,50 @@ const addRole = () => {
             },
         ])
         .then(body = (response) => {
-            db.query(`INSERT INTO role (title, salary, department_id)  VALUES ("${response.title}", "${response.salary}", "${response.department_id}" );`, (err, res) => {
+            db.query(`INSERT INTO role (title, salary, department_id) VALUES ("${response.title}", "${response.salary}", "${response.department_id}" );`, (err, res) => {
                 if (err) {
                     console.log(err)
                 } else {
                     console.table(res);
                 }
                 viewAllRoles();
+            });
+        });
+};
+
+// Function to add employee
+const addEmployee = () => {
+    inquirer
+        .prompt([
+            {
+                type: "input",
+                name: "firstName",
+                message: "Enter employee's first name"
+            },
+            {
+                type: "input",
+                name: "lastName",
+                message: "Enter employee's last name"
+            },
+            {
+                type: "number",
+                name: "roleId",
+                message: "What is the role id for the new employee?"
+            },
+            {
+                type: "number",
+                name: "managerId",
+                message: "What is employee's manager id?"
+            },
+        ])
+        .then(body = (response) => {
+            db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES("${response.firstName}", "${response.lastName}", "${response.roleId}", "${response.managerId});`, (err, res) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    console.table(res);
+                }
+                viewAllEmployees();
             });
         });
 };
