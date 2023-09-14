@@ -2,7 +2,7 @@ const mysql = require('mysql2');
 const inquirer = require('inquirer');
 const cTable = require('console.table');
 
-// create the connection to database
+// Create the connection to database
 const db = mysql.createConnection(
     {
         host: 'localhost',
@@ -13,6 +13,7 @@ const db = mysql.createConnection(
     console.log(`Connected to the database.`)
 );
 
+// Inquirer function for user prompt
 const employeeData = () => {
     inquirer
         .prompt([
@@ -62,6 +63,7 @@ const employeeData = () => {
         });
 };
 
+// Function to display departments
 const viewAllDepatments = () => {
     db.query('SELECT * FROM department', (err, res) => {
         if (err) {
@@ -73,4 +75,28 @@ const viewAllDepatments = () => {
     });
 }
 
+// Function to display roles
+const viewAllRoles = () => {
+    db.query('SELECT * FROM role', (err, res) => {
+        if (err) {
+            console.log(err)
+        } else {
+            console.table(res);
+        }
+        employeeData();
+    });
+}
+
+const viewAllEmployee = () => {
+    db.query('SELECT * FROM employee', (err, res) => {
+        if (err) {
+            console.log(err)
+        } else {
+            console.table(res);
+        }
+        employeeData();
+    });
+}
+
+// Call the function
 employeeData();
