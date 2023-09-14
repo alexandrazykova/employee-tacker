@@ -189,5 +189,45 @@ const addEmployee = () => {
         });
 };
 
+// Function to update employee role
+const updateEmployeeRole = () => {
+    inquirer
+        .prompt([
+            {
+                type: "input",
+                name: "employee",
+                message: "Enter employee's id you would like to update"
+            },
+            {
+                type: "list",
+                name: "details",
+                message: "What details would you like to update?",
+                choices: [
+                    'first_name',
+                    'last_name',
+                    'role_id',
+                    'manager_id'
+                ]
+            },
+            {
+                type: "newDetails",
+                name: "input",
+                message: "Enter the changed value"
+            }
+        ])
+
+        .then(body = (response) => {
+            db.query(`UPDATE employee SET ${response.details} = "${response.newDetails}" WHERE id = ${response.employee}`, (err, res) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    console.table(res);
+                }
+                viewAllEmployees();
+            });
+
+        });
+};
+
 // Call the function
 employeeData();
