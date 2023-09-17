@@ -15,7 +15,6 @@ Mysql
 cTable
 
 ## Usage
-
 Clone this repository
 Open integrated ternimal and run npm i
 In server.js connect database and sign into your mysql
