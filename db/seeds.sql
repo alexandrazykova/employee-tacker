@@ -25,4 +25,3 @@ VALUES
     ('Malia', 'Brown', 6, 6),
     ('Sarah', 'Lourd', 7, 7),
     ('Tom', 'Allen', 8, 8);
-
