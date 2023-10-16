@@ -22,4 +22,4 @@ Run npm start and follow the prompts
 
 ## Video
 
-[https://docs.google.com/document/d/1e_TRJHbnHEiZMDpUtFwgkGSt1BXTlsmEn0JeqATmgts/edit?usp=sharing](https://drive.google.com/file/d/1XyecRhReQ508MSSJk8ZNAZuoU5AKe8KI/view?usp=sharingLinks to an external site.)https://drive.google.com/file/d/1XyecRhReQ508MSSJk8ZNAZuoU5AKe8KI/view?usp=sharingLinks to an external site.
+https://drive.google.com/file/d/1XyecRhReQ508MSSJk8ZNAZuoU5AKe8KI/view?usp=sharing
