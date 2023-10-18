@@ -189,8 +189,6 @@ const addEmployee = () => {
         });
 };
 
-
-
 // Function to update employee role
 const updateEmployeeRole = () => {
     db.query(`SELECT * from employee`, (err, data) => {
